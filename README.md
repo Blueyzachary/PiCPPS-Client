@@ -1,4 +1,4 @@
-# Coastal Freeze
+# PiCPPS Standalone Client
 
 
-Official Coastal Freeze Client
+Official PiCPPS Standalone Executable Client
