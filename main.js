@@ -1,8 +1,10 @@
 
 /* 
 
-    Coastal Freeze's Downloadable Client
-    Copyright (C) 2021 Allinol<coastalfreeze.net>
+    PiCPPS's Downloadable Client
+    Copyright (C) 2023 Blueyzachary<picpps.com>
+    
+    Based on Allinol's Coastal Freeze Client
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -31,9 +33,9 @@ const {autoUpdater} = require("electron-updater");
 
 const DiscordRPC = require('discord-rpc');
 
-const aboutMessage = `Coastal Freeze Client v${app.getVersion()}
-Created by Allinol and Random for use with Coastal Freeze.
-Owners of Coastal Freeze: Fliberjig1 and Snickerdoodle`;
+const aboutMessage = `PiCPPS Client v${app.getVersion()}
+Created by Allinol and Random for use with PiCPPS.
+Owner of PiCPPS: Blueyzachary`;
 
 
 /**
@@ -82,21 +84,21 @@ app.commandLine.appendSwitch("disable-http-cache");
  */
 let rpc;
 function activateRPC() { 
-  DiscordRPC.register('792072685790167070');
+  DiscordRPC.register('1071466606166814781');
   rpc = new DiscordRPC.Client({
 	  transport: 'ipc'
   }); 
   const startTimestamp = new Date();
   rpc.on('ready', () => {
     rpc.setActivity({
-      details: `coastalfreeze.net`, 
+      details: `picpps.com`, 
       state: `Desktop Client`, 
       startTimestamp, 
       largeImageKey: imageName
     });
   });
   rpc.login({
-	clientId: '792072685790167070' 
+	clientId: '1071466606166814781' 
   }).catch(console.error);
 }
 /**
@@ -140,14 +142,14 @@ function createMenu() {
     fsmenu = new Menu();
     if (process.platform == 'darwin') {
         fsmenu.append(new MenuItem({
-            label: "Coastal Freeze Client",
+            label: "PiCPPS Client",
             submenu: [{
                     label: 'About',
                     click: () => {
                         dialog.showMessageBox({
                             type: "info",
                             buttons: ["Ok"],
-                            title: "About Coastal Freeze",
+                            title: "About PiCPPS",
                             message: aboutMessage
                         });
                     }
@@ -187,7 +189,7 @@ function createMenu() {
                 dialog.showMessageBox({
                     type: "info",
                     buttons: ["Ok"],
-                    title: "About Coastal Freeze",
+                    title: "About PiCPPS",
                     message: aboutMessage
                 });
             }
@@ -230,7 +232,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     useContentSize: true,
     show: false,
-    title: "Coastal Freeze",
+    title: "PiCPPS",
     webPreferences: {
 	  preload: path.join(__dirname, './preload.js'),
       plugins: true,
@@ -240,7 +242,7 @@ function createWindow () {
   })
   registerKeys()
   Menu.setApplicationMenu(createMenu());
-  mainWindow.loadURL('https://play.coastalfreeze.net/client/');
+  mainWindow.loadURL('https://legacy.picpps.com/client/');
   
 }
 
