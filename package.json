@@ -1,29 +1,33 @@
 {
-	"name": "coastal-freeze",
-	"version": "1.1.2",
-	"description": "Coastal Freeze Downloadable Client",
-	"productName": "Coastal Freeze",
+	"name": "picpps-client",
+	"version": "1.0.0",
+	"description": "PiCPPS Standalone Downloadable Client",
+	"productName": "PiCPPS",
 	"main": "main.js",
 	"scripts": {
 		"start": "electron ."
 	},
-	"repository": "https://github.com/AllinolCP/Coastal-Freeze",
+	"repository": "https://github.com/Blueyzachary/PiCPPS-Client",
 	"keywords": [
-		"coastal",
-		"freeze",
+		"raspberry",
+		"pi",
+		"picpps",
+		"rpi",
+		"pi",
+		"cpps",
 		"club penguin",
 		"cpr",
-		"coastal freeze"
+		"adobe flash"
 	],
 	"build": {
 		"publish": [
 			{
 				"provider": "github",
-				"owner": "AllinolCP",
-				"repo": "Coastal-Freeze"
+				"owner": "Blueyzachary",
+				"repo": "PiCPPS-Client"
 			}
 		],
-		"appId": "net.coastalfreeze.client",
+		"appId": "net.picpps.client",
 		"mac": {
 			"asar": false,
 			"target": "dmg",
@@ -118,7 +122,7 @@
 			"icon": "icons/windows/icon.ico"
 		}
 	},
-	"author": "Coastal Freeze <support@coastalfreeze.net> (https://coastalfreeze.net)",
+	"author": "PiCPPS <support@picpps.com> (https://clubpenguin.picpps.com)",
 	"license": "CC0-1.0",
 	"devDependencies": {
 		"electron": "^11.1.1",
