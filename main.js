@@ -31,9 +31,9 @@ const {autoUpdater} = require("electron-updater");
 
 const DiscordRPC = require('discord-rpc');
 
-const aboutMessage = `Coastal Freeze Client v${app.getVersion()}
-Created by Allinol and Random for use with Coastal Freeze.
-Owners of Coastal Freeze: Fliberjig1 and Snickerdoodle`;
+const aboutMessage = `PiCPPS Client v${app.getVersion()}
+Created by Blueyzachary for use with PiCPPS.
+Owners of PiCPPS: Blueyzachary`;
 
 
 /**
@@ -82,21 +82,21 @@ app.commandLine.appendSwitch("disable-http-cache");
  */
 let rpc;
 function activateRPC() { 
-  DiscordRPC.register('792072685790167070');
+  DiscordRPC.register('1071466606166814781');
   rpc = new DiscordRPC.Client({
 	  transport: 'ipc'
   }); 
   const startTimestamp = new Date();
   rpc.on('ready', () => {
     rpc.setActivity({
-      details: `coastalfreeze.net`, 
+      details: `clubpenguin.picpps.com`, 
       state: `Desktop Client`, 
       startTimestamp, 
       largeImageKey: imageName
     });
   });
   rpc.login({
-	clientId: '792072685790167070' 
+	clientId: '1071466606166814781' 
   }).catch(console.error);
 }
 /**
@@ -140,14 +140,14 @@ function createMenu() {
     fsmenu = new Menu();
     if (process.platform == 'darwin') {
         fsmenu.append(new MenuItem({
-            label: "Coastal Freeze Client",
+            label: "PiCPPS Client",
             submenu: [{
                     label: 'About',
                     click: () => {
                         dialog.showMessageBox({
                             type: "info",
                             buttons: ["Ok"],
-                            title: "About Coastal Freeze",
+                            title: "About PiCPPS",
                             message: aboutMessage
                         });
                     }
@@ -187,7 +187,7 @@ function createMenu() {
                 dialog.showMessageBox({
                     type: "info",
                     buttons: ["Ok"],
-                    title: "About Coastal Freeze",
+                    title: "About PiCPPS",
                     message: aboutMessage
                 });
             }
@@ -230,7 +230,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     useContentSize: true,
     show: false,
-    title: "Coastal Freeze",
+    title: "PiCPPS",
     webPreferences: {
 	  preload: path.join(__dirname, './preload.js'),
       plugins: true,
@@ -240,7 +240,7 @@ function createWindow () {
   })
   registerKeys()
   Menu.setApplicationMenu(createMenu());
-  mainWindow.loadURL('https://play.coastalfreeze.net/client/');
+  mainWindow.loadURL('https://legacy.picpps.com/client/');
   
 }
 
@@ -330,7 +330,7 @@ autoUpdater.on('update-available', (updateInfo) => {
 		  type: "info",
 		  buttons: ["Ok"],
 		  title: "Update Available",
-		  message: "There is a new version available (v" + updateInfo.version + "). Please go install it manually from the website."
+		  message: "There is a new version available (v" + updateInfo.version + "). Please go install it from https://clubpenguin.picpps.com/mac."
 	    });
 	    break
 	case 'linux':
@@ -338,7 +338,7 @@ autoUpdater.on('update-available', (updateInfo) => {
 		  type: "info",
 		  buttons: ["Ok"],
 		  title: "Update Available",
-		  message: "There is a new version available (v" + updateInfo.version + "). Auto-update has not been tested on this OS, so if after relaunching app this appears again, please go install it manually."
+		  message: "There is a new version available (v" + updateInfo.version + "). Auto-update has not been tested on this Linux OS, so if after relaunching app this appears again, please go install it manually."
 	    });
 	    break
 	}
